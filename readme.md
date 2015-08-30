@@ -18,6 +18,7 @@ Where `top` is the top range of numbers. Besure this number is higher than the t
 
 
 **Required Non-Standard Libraries**
+
 Pillow (2.9.0)
 
 > pip install Pillow
