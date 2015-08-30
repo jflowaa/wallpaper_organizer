@@ -39,6 +39,11 @@ def rename_image(folder, imagename, new_imagename, extension):
     return
 
 
+def check_if_renamed(imagename):
+    name_regex = re.compile('(wallpaper_)(\d*)(x)(\d*)(_)(\d*)(.\D{3,4})')
+    return name_regex.match(imagename)
+
+
 def hash_image(folder, imagename):
     """
     Opens the image, converts to binary, creates a hash from that.
@@ -108,18 +113,19 @@ def iterate_through_image(root):
     for folder, subfolders, imagenames in os.walk(root):
         print("Seraching through {} for images...".format(folder))
         for imagename in imagenames:
-            if imagename.endswith(".jpg"):
-                if process_image(folder, imagename, image_number, "jpg"):
-                    image_number += 1
-            if imagename.endswith(".png"):
-                if process_image(folder, imagename, image_number, "png"):
-                    image_number += 1
-            if imagename.endswith(".jpeg"):
-                if process_image(folder, imagename, image_number, "png"):
-                    image_number += 1
-            if imagename.endswith(".bmp"):
-                if process_image(folder, imagename, image_number, "png"):
-                    image_number += 1
+            if check_if_renamed(imagename) is None:
+                if imagename.endswith(".jpg"):
+                    if process_image(folder, imagename, image_number, "jpg"):
+                        image_number += 1
+                if imagename.endswith(".png"):
+                    if process_image(folder, imagename, image_number, "png"):
+                        image_number += 1
+                if imagename.endswith(".jpeg"):
+                    if process_image(folder, imagename, image_number, "jpeg"):
+                        image_number += 1
+                if imagename.endswith(".bmp"):
+                    if process_image(folder, imagename, image_number, "bmp"):
+                        image_number += 1
     return
 
 
