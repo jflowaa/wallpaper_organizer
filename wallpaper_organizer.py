@@ -125,8 +125,8 @@ def iterate_through_image(root):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Wallpaper library " +
-                                     "organizer. Renames and removes " +
-                                     "duplicates.")
+                                     "organizer. Renames images and " +
+                                     "removes duplicates.")
     parser.add_argument('path', type=str, help="Root directory of wallpapers")
     parser.add_argument('top', type=int, help="Generous guess of wallpapers")
     args = parser.parse_args()
