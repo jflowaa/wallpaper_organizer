@@ -17,7 +17,7 @@ To run this program:
 Where `top` is the top range of numbers. Besure this number is higher than the total number of pictures. These numbers will be pulled from a pool of numbers to build the strings for the image names.
 
 
-**Required Non-Standard Libraries**
+**Required Libraries**
 
 Pillow (2.9.0)
 
